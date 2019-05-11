@@ -1,11 +1,10 @@
 sudo: required
 services:
   - docker
-env: CI=true
 
 before_install:
   - docker build -t miloofcroton/docker-test -f Dockerfile.dev .
 
 script:
-  - docker run miloofcroton/docker-test npm run test
+  - docker run miloofcroton/docker-test "CI=true npm run test"
 
